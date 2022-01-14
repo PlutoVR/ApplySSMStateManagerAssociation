@@ -11,7 +11,12 @@ test('test runs', () => {
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
-  const output = cp.execFileSync(np, [ip], options).toString()
+  let output;
+  try {
+    output = cp.execFileSync(np, [ip], options).toString()
+  } catch (e) {
+    console.log(e);
+  }
   console.log(output)
   expect(output).toContain('us-west-2')
   expect(output).toContain('us-west-1')
