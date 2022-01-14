@@ -3,13 +3,13 @@ import * as cp from 'child_process'
 import * as path from 'path'
 import {expect, test} from '@jest/globals'
 
-test('test runs', () => {
+// Running this test in github assumes an aws authenticated context
+// which we don't want to do on builds in this repo
+test.skip('test runs', () => {
   process.env['INPUT_ASSOCIATIONNAME'] = 'testing'
   process.env['INPUT_REGIONS'] = '["us-west-2", "us-west-1"]'
   const np = process.execPath
-  console.log(np)
   const ip = path.join(__dirname, '..', 'lib', 'main.js')
-  console.log(ip)
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
@@ -17,9 +17,6 @@ test('test runs', () => {
   try {
     output = cp.execFileSync(np, [ip], options).toString()
   } catch (e: any) {
-    console.log(e.stdout);
-    console.log(e.stderr);
-    console.log(e.output);
     console.log(e.output.toString());
   }
   console.log(output)
