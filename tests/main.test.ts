@@ -7,17 +7,17 @@ test('test runs', () => {
   process.env['INPUT_ASSOCIATIONNAME'] = 'testing'
   process.env['INPUT_REGIONS'] = '["us-west-2", "us-west-1"]'
   const np = process.execPath
-  console.log(np);
-  const ip = path.join(__dirname, '..', 'dist', 'index.js');
-  console.log(ip);
+  console.log(np)
+  const ip = path.join(__dirname, '..', 'lib', 'main.js')
+  console.log(ip)
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
-  let output;
+  let output
   try {
     output = cp.execFileSync(np, [ip], options).toString()
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
   console.log(output)
   expect(output).toContain('us-west-2')

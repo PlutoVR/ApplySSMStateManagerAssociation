@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "TypeScript template action",
-  "main": "dist/index.js",
+  "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write '**/*.ts'",
@@ -29,6 +29,7 @@
     "@aws-sdk/client-ssm": "^3.44.0"
   },
   "devDependencies": {
+    "@jest/globals": "27.4.6",
     "@types/node": "^17.0.7",
     "@typescript-eslint/parser": "^5.9.1",
     "@vercel/ncc": "^0.31.1",
