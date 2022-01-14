@@ -7,7 +7,9 @@ test('test runs', () => {
   process.env['INPUT_ASSOCIATIONNAME'] = 'testing'
   process.env['INPUT_REGIONS'] = '["us-west-2", "us-west-1"]'
   const np = process.execPath
-  const ip = path.join(__dirname, '..', 'lib', 'main.js')
+  console.log(np);
+  const ip = path.join(__dirname, '..', 'dist', 'index.js');
+  console.log(ip);
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
