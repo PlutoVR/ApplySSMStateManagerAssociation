@@ -13,7 +13,7 @@ test('test runs', () => {
   }
   const output = cp.execFileSync(np, [ip], options).toString()
   console.log(output)
-  expect(output).toContain('us-west-2');
-  expect(output).toContain('us-west-1');
-  expect(output).toContain('Running association testing');
+  expect(output).toContain('us-west-2')
+  expect(output).toContain('us-west-1')
+  expect(output).toContain('Running association testing')
 })
