@@ -11,5 +11,9 @@ test('test runs', () => {
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
-  console.log(cp.execFileSync(np, [ip], options).toString())
+  const output = cp.execFileSync(np, [ip], options).toString()
+  console.log(output)
+  expect(output).toContain('us-west-2');
+  expect(output).toContain('us-west-1');
+  expect(output).toContain('Running association testing');
 })

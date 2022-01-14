@@ -42,6 +42,7 @@ async function run(): Promise<void> {
     const regions: string[] = JSON.parse(core.getInput('regions'))
 
     core.info(`Running association ${associationName}`)
+    core.info(`Running in regions: ${JSON.stringify(regions)}`)
 
     const regionPromises = regions.map(async (region: string) => {
       const results = await getListOfAssociations(associationName, region)
@@ -51,14 +52,13 @@ async function run(): Promise<void> {
         })
         .map(async (id: string | undefined) => {
           if (id) {
+            core.setOutput(region, 'Association has been run')
             return reRunAssociation(region, id)
           }
         })
     })
 
     await Promise.all(regionPromises)
-
-    // core.setOutput('time', new Date().toTimeString())
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
