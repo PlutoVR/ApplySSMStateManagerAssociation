@@ -17,7 +17,10 @@ test('test runs', () => {
   try {
     output = cp.execFileSync(np, [ip], options).toString()
   } catch (e) {
-    console.log(e)
+    console.log(e.stdout);
+    console.log(e.stderr);
+    console.log(e.output);
+    console.log(e.output.toString());
   }
   console.log(output)
   expect(output).toContain('us-west-2')
