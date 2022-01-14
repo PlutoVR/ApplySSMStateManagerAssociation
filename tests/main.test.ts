@@ -16,7 +16,7 @@ test('test runs', () => {
   let output
   try {
     output = cp.execFileSync(np, [ip], options).toString()
-  } catch (e) {
+  } catch (e: any) {
     console.log(e.stdout);
     console.log(e.stderr);
     console.log(e.output);
