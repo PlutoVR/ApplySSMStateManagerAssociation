@@ -23,6 +23,6 @@ jobs:
             - us-west-2
             - us-east-1
             - ap-south-1
-    associationName: 'testing'
+          associationName: 'testing'
       - run: |
           npm run all
