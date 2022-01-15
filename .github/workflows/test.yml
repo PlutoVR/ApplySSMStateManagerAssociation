@@ -17,7 +17,7 @@ jobs:
           aws-access-key-id: ${{ secrets.TEST_TEMP_KEY_ID }}
           aws-secret-access-key: ${{ secrets.TEST_TEMP_ACCESS_KEY }}
           aws-region: us-east-2
-      - uses: ./dist/index.js
+      - uses: ./
         with:
           regions: '["us-west-2","us-east-1","ap-south-1"]'
           associationName: 'testing'
