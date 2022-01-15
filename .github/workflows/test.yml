@@ -19,10 +19,7 @@ jobs:
           aws-region: us-east-2
       - uses: ./dist/index.js
         with:
-          regions:
-            - us-west-2
-            - us-east-1
-            - ap-south-1
+          regions: '["us-west-2","us-east-1","ap-south-1"]'
           associationName: 'testing'
       - run: |
           npm run all
