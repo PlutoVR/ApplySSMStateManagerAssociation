@@ -3,15 +3,27 @@ on: # rebuild any PRs and main branch changes
   pull_request:
   push:
     branches:
-      - main
-      - 'releases/*'
 
 jobs:
+  permissions:
+    id-token: write
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
           npm install
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.TEST_TEMP_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.TEST_TEMP_ACCESS_KEY }}
+          aws-region: us-east-2
+      - uses: ./dist/index.js
+        with:
+          regions:
+            - us-west-2
+            - us-east-1
+            - ap-south-1
+    associationName: 'testing'
       - run: |
           npm run all
