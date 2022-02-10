@@ -7,7 +7,7 @@ inputs:
     description: 'The name of your state manager association'
   regions:
     required: true
-     description: 'All regions to apply this association in JSON array form -- example: ["us-west-2", "us-west-1", "us-east-1"]'
+    description: 'All regions to apply this association in JSON array form -- example: ["us-west-2", "us-west-1", "us-east-1"]'
 runs:
   using: 'node12'
   main: 'dist/index.js'
