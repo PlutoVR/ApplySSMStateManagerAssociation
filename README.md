@@ -14,11 +14,8 @@ You provide the association name and the regions where they should be applied.
     aws-region: us-east-2
 - uses: plutovr/apply-ssm-state-manager-association
   with:
-    regions:
-      - us-west-2
-      - us-east-1
-      - ap-south-1
-    associationName: testing
+  regions: '["us-west-2","us-east-1"]'
+  associationName: 'test-association'
 ```
 
 ## Development
@@ -34,8 +31,6 @@ Build the typescript and package it for distribution
 ```bash
 $ npm run build && npm run package
 ```
-
-Run the tests
 
 ```bash
 $ npm test
